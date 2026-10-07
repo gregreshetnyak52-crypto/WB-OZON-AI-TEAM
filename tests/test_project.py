@@ -43,6 +43,33 @@ class SkillsTest(unittest.TestCase):
                 self.assertRegex(text, pattern)
 
 
+CUSTOMER_FACING = ["review-replies", "buyer-questions", "returns-claims",
+                   "content-plan", "lead-triage", "commercial-offer"]
+
+
+class BrandVoiceTest(unittest.TestCase):
+    def test_customer_facing_skills_require_brand_voice_first(self):
+        for name in CUSTOMER_FACING:
+            text = (ROOT / "skills" / name / "SKILL.md").read_text(encoding="utf-8")
+            with self.subTest(skill=name):
+                self.assertIn("## Шаг 0. Стиль общения", text)
+                self.assertIn("brand-voice.md", text)
+                self.assertIn("Файла нет — не пиши ответы", text)
+                # Шаг 0 стоит раньше, чем входные данные и процесс.
+                self.assertLess(text.index("## Шаг 0"), text.index("## Процесс") if "## Процесс" in text else len(text))
+
+    def test_template_covers_key_questions(self):
+        template = (ROOT / "skills" / "brand-voice" / "template.md").read_text(encoding="utf-8")
+        for section in ["## Как обращаемся", "## Тон", "## Слова", "## Сложные ситуации",
+                        "## Примеры ответов"]:
+            with self.subTest(section=section):
+                self.assertIn(section, template)
+
+    def test_brand_voice_skill_links_template(self):
+        text = (ROOT / "skills" / "brand-voice" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("](template.md)", text)
+
+
 class ValidatorTest(unittest.TestCase):
     def test_rejects_name_mismatch(self):
         with tempfile.TemporaryDirectory() as tmp:
