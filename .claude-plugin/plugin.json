@@ -1,7 +1,7 @@
 {
-  "name": "shtat",
-  "version": "0.1.0",
-  "description": "ИИ-сотрудники для малого бизнеса: отзывы, КП, конкуренты, контент, маркетплейсы, заявки, найм и финансы.",
+  "name": "wb-ozon-ai-team",
+  "version": "0.2.0",
+  "description": "ИИ-команда для селлеров WB и Ozon: юнит-экономика, отчёты, цены, карточки, инфографика, вопросы, отзывы, штрафы.",
   "author": {
     "name": "Greg Reshetnyak",
     "email": "gregreshetnyak52@gmail.com"

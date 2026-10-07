@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Устанавливает скиллы «Штата» в папку скиллов агента.
+# Устанавливает скиллы WB-OZON-AI-TEAM в папку скиллов агента.
 #   sh install.sh                 → ~/.claude/skills (Claude Code)
 #   sh install.sh <путь>          → в любую другую папку скиллов
 set -eu

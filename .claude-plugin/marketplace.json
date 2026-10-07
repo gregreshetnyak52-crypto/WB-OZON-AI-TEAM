@@ -1,15 +1,15 @@
 {
-  "name": "shtat",
-  "description": "«Штат» — ИИ-сотрудники для малого бизнеса на русском языке.",
+  "name": "wb-ozon-ai-team",
+  "description": "ИИ-команда для селлеров Wildberries и Ozon на русском языке.",
   "owner": {
     "name": "Greg Reshetnyak",
     "email": "gregreshetnyak52@gmail.com"
   },
   "plugins": [
     {
-      "name": "shtat",
+      "name": "wb-ozon-ai-team",
       "source": "./",
-      "description": "ИИ-сотрудники для малого бизнеса: отзывы, КП, конкуренты, контент, маркетплейсы, заявки, найм и финансы."
+      "description": "ИИ-команда для селлеров WB и Ozon: юнит-экономика, отчёты, цены, карточки, инфографика, вопросы, отзывы, штрафы."
     }
   ]
 }
