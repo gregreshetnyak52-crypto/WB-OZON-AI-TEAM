@@ -1,6 +1,6 @@
 # WB-OZON-AI-TEAM
 
-**ИИ-команда для селлеров Wildberries и Ozon. Нанимается одной командой, работает в Claude Code и других ИИ-агентах.**
+**ИИ-команда для селлеров Wildberries и Ozon. Нанимается одной командой, работает в Claude Code, Codex и Cursor.**
 
 Считает юнит-экономику и реальную прибыль по отчётам маркетплейса, следит за ценами конкурентов, делает карточки и ТЗ на инфографику, отвечает на вопросы и отзывы покупателей, оспаривает штрафы. Всё на русском и с учётом правил площадок и российских законов.
 
@@ -72,22 +72,53 @@ claude plugin install wb-ozon-ai-team@wb-ozon-ai-team
 
 > Команды со слешем `/plugin` работают только внутри Claude Code. В обычном терминале они дадут ошибку `no such file or directory`.
 
-### Claude Code — скопировать скиллы
+### Codex
 
 ```bash
 git clone https://github.com/gregreshetnyak52-crypto/WB-OZON-AI-TEAM
-cd WB-OZON-AI-TEAM && sh install.sh
+cd WB-OZON-AI-TEAM && sh install.sh codex
 ```
 
-### Другие агенты (Codex, Cursor, OpenCode и т. д.)
+Скиллы появятся в `~/.agents/skills` — оттуда их читает Codex. Перезапустите Codex — сотрудники подключатся сами. Если ваша версия Codex их не видит, поставьте в старую папку: `sh install.sh ~/.codex/skills`.
 
-Скиллы сделаны в открытом формате Agent Skills: папка с `SKILL.md`. Укажите установщику папку скиллов вашего агента:
+### Cursor
+
+```bash
+git clone https://github.com/gregreshetnyak52-crypto/WB-OZON-AI-TEAM
+cd WB-OZON-AI-TEAM && sh install.sh cursor
+```
+
+Скиллы появятся в `~/.cursor/skills`. Перезапустите Cursor — сотрудники будут доступны в чате агента. Если вы уже поставили их для Claude Code или Codex, Cursor увидит их и без этого шага: он читает папки скиллов обоих агентов. Ставить второй раз не нужно — иначе сотрудники задвоятся.
+
+### Claude Code без плагина
+
+```bash
+git clone https://github.com/gregreshetnyak52-crypto/WB-OZON-AI-TEAM
+cd WB-OZON-AI-TEAM && sh install.sh claude
+```
+
+### Другие агенты
+
+Сотрудники сделаны в открытом формате Agent Skills: папка с `SKILL.md`. Укажите установщику папку скиллов вашего агента:
 
 ```bash
 sh install.sh /путь/к/папке/скиллов
 ```
 
 Можно и без установки: откройте нужный `SKILL.md` и вставьте его в начало разговора с любым ИИ-ассистентом.
+
+### Обновление
+
+```bash
+cd WB-OZON-AI-TEAM && git pull && sh install.sh <claude|codex|cursor>
+```
+
+Плагин Claude Code обновляется так:
+
+```bash
+claude plugin marketplace update wb-ozon-ai-team
+claude plugin update wb-ozon-ai-team@wb-ozon-ai-team
+```
 
 ## Чем это отличается от просто промптов
 

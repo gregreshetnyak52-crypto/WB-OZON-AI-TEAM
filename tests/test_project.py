@@ -119,6 +119,30 @@ class InstallTest(unittest.TestCase):
             if created:
                 cache.rmdir() if not any(cache.iterdir()) else None
 
+    def test_agent_targets(self):
+        import os
+        targets = {"claude": ".claude/skills", "codex": ".agents/skills", "cursor": ".cursor/skills"}
+        for agent, folder in targets.items():
+            with self.subTest(agent=agent), tempfile.TemporaryDirectory() as home:
+                env = dict(os.environ, HOME=home)
+                result = subprocess.run(["sh", str(ROOT / "install.sh"), agent], env=env,
+                                        check=True, capture_output=True, text=True)
+                installed = sorted(p.name for p in (Path(home) / folder).iterdir())
+                self.assertEqual(installed, [s.name for s in SKILLS])
+                self.assertIn("Перезапустите", result.stdout)
+
+    def test_default_target_is_claude(self):
+        import os
+        with tempfile.TemporaryDirectory() as home:
+            env = dict(os.environ, HOME=home)
+            subprocess.run(["sh", str(ROOT / "install.sh")], env=env, check=True, capture_output=True)
+            self.assertTrue((Path(home) / ".claude" / "skills" / "brand-voice" / "SKILL.md").is_file())
+
+    def test_unknown_agent_is_rejected(self):
+        result = subprocess.run(["sh", str(ROOT / "install.sh"), "vscode"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("Неизвестный агент", result.stderr)
+
     def test_reinstall_replaces_old_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             stale = Path(tmp) / "review-replies" / "stale.txt"
