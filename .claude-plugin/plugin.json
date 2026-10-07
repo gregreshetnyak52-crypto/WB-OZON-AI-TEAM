@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "description": "ИИ-сотрудники для малого бизнеса: отзывы, КП, конкуренты, контент, маркетплейсы, заявки, найм и финансы.",
   "author": {
-    "name": "gregreshetnyak52-crypto"
+    "name": "Greg Reshetnyak",
+    "email": "gregreshetnyak52@gmail.com"
   },
   "repository": "https://github.com/gregreshetnyak52-crypto/WB-OZON-AI-TEAM",
   "license": "MIT",
-  "keywords": ["business", "small-business", "russian", "agent-skills", "marketplace", "wildberries", "ozon"]
+  "keywords": [
+    "business",
+    "small-business",
+    "russian",
+    "agent-skills",
+    "marketplace",
+    "wildberries",
+    "ozon"
+  ]
 }

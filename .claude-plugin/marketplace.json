@@ -2,7 +2,8 @@
   "name": "shtat",
   "description": "«Штат» — ИИ-сотрудники для малого бизнеса на русском языке.",
   "owner": {
-    "name": "gregreshetnyak52-crypto"
+    "name": "Greg Reshetnyak",
+    "email": "gregreshetnyak52@gmail.com"
   },
   "plugins": [
     {
