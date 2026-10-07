@@ -35,15 +35,15 @@
 ### Claude Code — как плагин
 
 ```
-/plugin marketplace add gregreshetnyak52-crypto/shtat
+/plugin marketplace add gregreshetnyak52-crypto/WB-OZON-AI-TEAM
 /plugin install shtat@shtat
 ```
 
 ### Claude Code — скопировать скиллы
 
 ```bash
-git clone https://github.com/gregreshetnyak52-crypto/shtat
-cd shtat && sh install.sh
+git clone https://github.com/gregreshetnyak52-crypto/WB-OZON-AI-TEAM
+cd WB-OZON-AI-TEAM && sh install.sh
 ```
 
 ### Другие агенты (Codex, Cursor, OpenCode и т. д.)
