@@ -56,10 +56,21 @@
 
 ### Claude Code — как плагин
 
+В обычном терминале (macOS Terminal, iTerm, PowerShell):
+
+```bash
+claude plugin marketplace add gregreshetnyak52-crypto/WB-OZON-AI-TEAM
+claude plugin install wb-ozon-ai-team@wb-ozon-ai-team
+```
+
+Или внутри Claude Code — сначала запустите `claude`, затем введите:
+
 ```
 /plugin marketplace add gregreshetnyak52-crypto/WB-OZON-AI-TEAM
 /plugin install wb-ozon-ai-team@wb-ozon-ai-team
 ```
+
+> Команды со слешем `/plugin` работают только внутри Claude Code. В обычном терминале они дадут ошибку `no such file or directory`.
 
 ### Claude Code — скопировать скиллы
 
