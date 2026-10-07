@@ -35,14 +35,14 @@
 ### Claude Code — как плагин
 
 ```
-/plugin marketplace add gregreshetnyak52-crypto/Projects
+/plugin marketplace add gregreshetnyak52-crypto/shtat
 /plugin install shtat@shtat
 ```
 
 ### Claude Code — скопировать скиллы
 
 ```bash
-git clone https://github.com/gregreshetnyak52-crypto/Projects shtat
+git clone https://github.com/gregreshetnyak52-crypto/shtat
 cd shtat && sh install.sh
 ```
 
