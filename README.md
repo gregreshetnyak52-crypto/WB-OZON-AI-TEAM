@@ -95,7 +95,7 @@ sh install.sh /путь/к/папке/скиллов
 
 1. Скопируйте [`docs/skill-template/SKILL.md`](docs/skill-template/SKILL.md) в `skills/<имя-латиницей>/SKILL.md`.
 2. Заполните роль, входные данные, процесс, формат результата и правила.
-3. Проверьте: `python3 scripts/validate.py`.
+3. Проверьте: `python3 scripts/validate.py` и `python3 -m unittest discover -s tests`.
 
 Подробнее — в [CONTRIBUTING.md](CONTRIBUTING.md).
 

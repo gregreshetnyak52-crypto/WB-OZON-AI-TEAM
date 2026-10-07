@@ -74,7 +74,7 @@ def rub(value):
     return f"{value:,.0f} ₽".replace(",", " ")
 
 
-def main(argv=None):
+def build_parser():
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--price", type=float, required=True,
@@ -107,6 +107,11 @@ def main(argv=None):
                    help="ставка НДС в цене, %% (0, 5, 7, 20...)")
     p.add_argument("--target-margin", type=float, default=None,
                    help="подобрать цену под целевую маржу, %%")
+    return p
+
+
+def main(argv=None):
+    p = build_parser()
     args = p.parse_args(argv)
 
     if not 0 < args.buyout <= 100:
