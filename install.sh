@@ -12,6 +12,7 @@ for skill in "$SRC_DIR"/*/; do
   name="$(basename "$skill")"
   rm -rf "$DEST_DIR/$name"
   cp -R "$skill" "$DEST_DIR/$name"
+  rm -rf "$DEST_DIR/$name/__pycache__"
   echo "  + $name"
 done
 echo "Готово: скиллы установлены в $DEST_DIR"

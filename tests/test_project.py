@@ -107,6 +107,18 @@ class InstallTest(unittest.TestCase):
             self.assertEqual(installed, [s.name for s in SKILLS])
             self.assertTrue((Path(tmp) / "unit-economics" / "calc.py").is_file())
 
+    def test_does_not_copy_python_cache(self):
+        cache = ROOT / "skills" / "unit-economics" / "__pycache__"
+        created = not cache.exists()
+        cache.mkdir(exist_ok=True)
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                subprocess.run(["sh", str(ROOT / "install.sh"), tmp], check=True, capture_output=True)
+                self.assertFalse((Path(tmp) / "unit-economics" / "__pycache__").exists())
+        finally:
+            if created:
+                cache.rmdir() if not any(cache.iterdir()) else None
+
     def test_reinstall_replaces_old_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             stale = Path(tmp) / "review-replies" / "stale.txt"
